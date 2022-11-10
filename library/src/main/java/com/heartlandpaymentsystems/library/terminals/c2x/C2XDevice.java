@@ -1,5 +1,6 @@
 package com.heartlandpaymentsystems.library.terminals.c2x;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -182,6 +183,7 @@ public class C2XDevice implements IDevice {
         return isTransactionManagerConnected();
     }
 
+    @SuppressLint("MissingPermission")
     public void scan() {
         if (bluetoothReceiver == null) {
             bluetoothReceiver = new BluetoothReceiver();
@@ -204,6 +206,7 @@ public class C2XDevice implements IDevice {
         }
     }
 
+    @SuppressLint("MissingPermission")
     public void cancelScan(){
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -325,6 +328,7 @@ public class C2XDevice implements IDevice {
             deviceListener.onBluetoothDeviceList(bluetoothDevices);
         }
 
+        @SuppressLint("MissingPermission")
         @Override
         public void onBluetoothDeviceFound(BluetoothDevice foundDevice) {
             if (foundDevice == null) {
